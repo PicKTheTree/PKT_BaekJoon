@@ -4,6 +4,7 @@
 #Date           :   2023/02/16, 13:51
 #URL            :   https://www.acmicpc.net/problem/4948
 
+
 # 문제
 # 베르트랑 공준은 임의의 자연수 n에 대하여, n보다 크고, 2n보다 작거나 같은 소수는 적어도 하나 존재한다는 내용을 담고 있다.
 # 이 명제는 조제프 베르트랑이 1845년에 추측했고, 파프누티 체비쇼프가 1850년에 증명했다.
@@ -20,24 +21,15 @@
 # 제한
 # 1 ≤ n ≤ 123,456
 
-# 예제 입력 1 
-# 1
-# 10
-# 13
-# 100
-# 1000
-# 10000
-# 100000
+# 예제 입력     예제 출력 
+# 1             1
+# 10            4
+# 13            3
+# 100           21   
+# 1000          135
+# 10000         1033
+# 100000        8392
 # 0
-
-# 예제 출력 1 
-# 1
-# 4
-# 3
-# 21
-# 135
-# 1033
-# 8392
 
 
 # 기독성 버전
@@ -65,7 +57,7 @@ while True:
 # while True:
 #     N=int(input());M=2*N
 #     if N==0: break
-#     e=[];e=[True]*(M+1);e[1]=False;[e.__setitem__(j, False) for i in range(2,int(M**0.5)+1)if e[i] for j in range(i+i,M+1,i)];print(e[N+1:M+1].count(True))
+#     e=[];e=[True]*(M+1);e[1]=False;[e.__setitem__(j,False)for i in range(2,int(M**0.5)+1)if e[i] for j in range(i+i,M+1,i)];print(e[N+1:M+1].count(True))
 
 
 
