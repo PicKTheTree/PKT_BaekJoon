@@ -29,3 +29,9 @@ N=(int(input()));N//=5;print(N+N//5+N//25)
 # However, when 'N' is more than the square of 5, the number of 5 further increases, and thus a calculation accordingly is required
 # So, the value obtaied by dividing "N" by "5" is stored in N again, and an additional calculation formula is required.
 
+
+
+
+
+
+
