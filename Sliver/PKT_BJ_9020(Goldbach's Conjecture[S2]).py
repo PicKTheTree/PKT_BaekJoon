@@ -3,6 +3,7 @@
 #Problem Tier   :   Sliver 2
 #Date           :   2023/02/16, 13:51
 #URL            :   https://www.acmicpc.net/problem/4948
+#
 
 # 문제
 # 베르트랑 공준은 임의의 자연수 n에 대하여, n보다 크고, 2n보다 작거나 같은 소수는 적어도 하나 존재한다는 내용을 담고 있다.
