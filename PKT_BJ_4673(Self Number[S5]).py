@@ -61,3 +61,8 @@ for _ in range(1,10001):
     
     if not _ in List_Generator:     print(_)
 
+
+# Short Version
+
+# r=range(10000)
+# print(*sorted({*r}-{n+sum(map(int,str(n)))for n in r}))
