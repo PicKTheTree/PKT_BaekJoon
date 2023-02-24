@@ -1,7 +1,7 @@
 #Problem title  :   Vertical reading(세로 읽기)
 #Problem Number :   2501
 #Problem Tier   :   Bronze 3
-#Date           :   2023/02/22, 13:36
+#Date           :   2023/02/23, 13:36
 #URL            :   https://www.acmicpc.net/problem/2501
 
 
