@@ -61,24 +61,8 @@ for i in range(int(input())):
 
     while ( String_Primes[Number_Half_Big]==False ) or ( String_Primes[Number_Half_Small] == False ) or ( Number_Half_Small + Number_Half_Big != Number_inputed ):
 
-        
-        
-
-        if Number_Half_Small + Number_Half_Big >= Number_inputed:
-            Number_Half_Small-=1
-            while String_Primes[Number_Half_Small]==False:
-                
-                Number_Half_Small-=1
-
-        
-                
-        
-        if Number_Half_Small + Number_Half_Big < Number_inputed:
-            Number_Half_Big+=1
-            while String_Primes[Number_Half_Big]==False:
-                
-                Number_Half_Big+=1
-
+        if Number_Half_Small + Number_Half_Big >= Number_inputed:   Number_Half_Small-=1
+        else:                                                       Number_Half_Big+=1
 
     print(Number_Half_Small, Number_Half_Big)
        
