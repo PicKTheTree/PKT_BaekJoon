@@ -1,5 +1,5 @@
 #Problem title  :   Build Bridge
-#P0roblem Number:  1010
+#P0roblem Number:   1010
 #Problem Tier   :   Sliver 5
 #Date           :   2023/03/01, 14:10
 #URL            :   https://www.acmicpc.net/problem/1010
