@@ -1,8 +1,8 @@
 #Problem title  :   Build Bridge
-#P0roblem Number :   1676
+#P0roblem Number:  1010
 #Problem Tier   :   Sliver 5
-#Date           :   2023/02/20, 10:21
-#URL            :   https://www.acmicpc.net/problem/1676
+#Date           :   2023/03/01, 14:10
+#URL            :   https://www.acmicpc.net/problem/1010
 
 # 문제
 # 재원이는 한 도시의 시장이 되었다. 이 도시에는 도시를 동쪽과 서쪽으로 나누는 큰 일직선 모양의 강이 흐르고 있다. 
