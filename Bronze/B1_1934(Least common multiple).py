@@ -26,18 +26,18 @@
 
 ###Python Version
 
-for _ in range(int(input())):
+for _ in range( int( input() ) ):
 
-    Num_A, Num_B = sorted(map(int,input().split()))
+    Num_A, Num_B = sorted( map( int,input().split() ) )
     Num_AB = Num_A * Num_B
-    Num_rest = Num_B%Num_A
+    Num_rest = Num_B % Num_A
 
-    while(Num_rest != 0):
+    while( Num_rest != 0 ):
 
         Num_B = Num_A; Num_A = Num_rest
         Num_rest = Num_B % Num_A
     
-    print(Num_AB//Num_A)
+    print( Num_AB // Num_A )
 
     
 
