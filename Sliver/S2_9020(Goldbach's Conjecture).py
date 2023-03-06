@@ -36,14 +36,14 @@
 
 
 # Init array of size 10001 contains prime number list.
-String_Primes=[]
-String_Primes=[True]*(10001)
-String_Primes[1]=False
+String_Primes = [ ]
+String_Primes = [ True ] * ( 10001 )
+String_Primes[ 1 ] = False
     
 # Prime_Number = True       Not_Prime_Number = False 
-for i in range(2,101):
-    if String_Primes[i]==True:
-        for j in range(i+i,10000+1,i): String_Primes[j]=False
+for i in range( 2, 101 ):
+    if String_Primes[ i ] == True:
+        for j in range( i+i, 10001, i): String_Primes[ j ]=False
 
 
 #   ex) Number_inputed = 32
@@ -54,17 +54,17 @@ for i in range(2,101):
 #   13    +   17  (Small == True  , Big == True  and Small + Big is small than 32)
 #   13    +   19  >> break
 
-for i in range(int(input())):
+for i in range( int( input() )):
 
-    Number_inputed=int(input())
-    Number_Half_Small, Number_Half_Big= Number_inputed//2,Number_inputed//2
+    Number_inputed = int( input() )
+    Number_Half_Small = Number_Half_Big = Number_inputed // 2
 
     while ( String_Primes[Number_Half_Big]==False ) or ( String_Primes[Number_Half_Small] == False ) or ( Number_Half_Small + Number_Half_Big != Number_inputed ):
 
-        if Number_Half_Small + Number_Half_Big >= Number_inputed:   Number_Half_Small-=1
-        else:                                                       Number_Half_Big+=1
+        if Number_Half_Small + Number_Half_Big >= Number_inputed:   Number_Half_Small -= 1
+        else:                                                       Number_Half_Big += 1
 
-    print(Number_Half_Small, Number_Half_Big)
+    print( Number_Half_Small, Number_Half_Big )
        
 
 
