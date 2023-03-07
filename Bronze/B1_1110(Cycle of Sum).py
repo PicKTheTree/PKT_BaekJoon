@@ -28,19 +28,19 @@
 
 
 ### Python Version 1
-input_value =int(input())
+Value_input = int(input())
+Cycle_count = 0
+Value_new = 0
+Value = Value_input
 
-cycle_count=0
-new_value=0
-value=input_value
-
-if input_value==0:
-  cycle_count+=1
-else:
-  while( input_value != new_value ):
+if input_value == 0 :
+  cycle_count += 1
+  
+else :
+  while( Value_input != Value_new ):
     
-    new_value=( ( value % 10 ) * 10 ) + ( ( ( value//10 ) + ( value %10 ) ) %10 )
-    value = new_value
+    Value_new = ( ( Value % 10 ) * 10 ) + ( ( ( Value // 10 ) + ( Value % 10 ) ) % 10 )
+    Value = Value_new
     cycle_count+=1
 
 print(cycle_count)
