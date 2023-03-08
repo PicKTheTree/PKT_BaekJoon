@@ -84,22 +84,34 @@ int main() {
 
 ///// C++ Short Version
 // #include<iostream>
-// #include<string>
 // #include<vector>
 // #include<algorithm>
 // using namespace std;
-//
+
 // int main() {
+
 //     string V; vector<char> A; int T, C;
-//     cin>>T;C=T;
-//     for (int t=0;t<T;t++){
+//     cin>>T; C=T;
+
+//     for (int t=0;t<T;t++)   {
+
 //         cin>>V;
 //         A.push_back(V[0]);
-//         for(int i=0;i<V.length();i++){ 
-//             if(V[i]!=A.back()){auto G= find(A.begin(),A.end(),V[i]); if (G!=A.end()) {C--; break;}}
+
+//         for(int i=0;i<V.length();i++)   {
+
+//             if(V[i]!=A.back())  {
+
+//                 auto G= find(A.begin(),A.end(),V[i]); 
+
+//                 if (G!=A.end()) {C--; break;}
+//             }
+
 //             A.push_back(V[i]);
 //         }
+
 //         A.clear();
 //     }
+
 //     cout<<C;
 // }
