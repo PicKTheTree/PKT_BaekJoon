@@ -2,7 +2,7 @@
 #Problem title  :   Sum of GCD(GCD 합)
 #Problem Number :   9613
 #Problem Tier   :   Sliver 4
-#Date           :   2023/03/08, 09:03
+#Date           :   2023/03/13, 16:38
 #URL            :   https://www.acmicpc.net/problem/9613
 
 
