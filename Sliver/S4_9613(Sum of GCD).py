@@ -58,11 +58,10 @@ for _ in range( int( input() ) ) :
   while ( len( String_num ) > 1 ) :
 
     # '끝에 있는 숫자를 Pop하여, 저장하고 나머지 숫자들과 GCD를 계산'
-    Num_temp = String_num.pop()
+    Num_big  = String_num.pop()
 
     for index in range( len( String_num ) ) :
 
-      Num_big = Num_temp
       Num_small = String_num[ index ]
       GCD_sum += GCD( Num_small, Num_big )
     
@@ -89,11 +88,10 @@ for _ in range( int( input() ) ) :
 
 #   while ( len( S ) > 1 ) :
 
-#     Temp = S.pop()
+#     Y = S.pop()
 
 #     for index in range( len( S ) ) :
 
-#       Y = Temp
 #       X = S[ index ]
 #       Result += GCD( X, Y )
     
