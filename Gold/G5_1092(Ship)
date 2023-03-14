@@ -1,0 +1,41 @@
+
+
+
+
+
+
+import sys
+
+input= sys.stdin.readline
+
+Len_string_crane    = int( input() )
+String_crane        = list( map( int, input().split() ) )
+Len_string_box      = int( input() )
+String_box          = list( map( int, input().split() ) )
+
+String_crane.reverse()
+String_box.reverse()
+Time = 0
+
+if String_crane[0] < String_box[0] : print(-1); exit()
+
+
+
+
+while ( len( String_box ) > 0) : 
+        
+        
+    Time += 1
+
+    for Crane in String_crane :
+
+        for Box_index in range( len( String_box ) ) :
+            
+            if Crane >= String_box[ Box_index ] : del String_box[ Box_index ]; break
+
+            
+    
+    
+print( Time )
+
+
