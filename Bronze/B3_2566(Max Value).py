@@ -2,7 +2,7 @@
 #Problem Number :   2566
 #Problem Tier   :   Bronze 3
 #Date           :   2023/03/17, 13:12
-#URL            :   https://www.acmicpc.net/problem/2566문제
+#URL            :   https://www.acmicpc.net/problem/2566
 
 # <그림 1>과 같이 9×9 격자판에 쓰여진 81개의 자연수 또는 0이 주어질 때, 
 # 이들 중 최댓값을 찾고 그 최댓값이 몇 행 몇 열에 위치한 수인지 구하는 프로그램을 작성하시오.
