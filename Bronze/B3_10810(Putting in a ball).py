@@ -42,11 +42,11 @@
 
 ### Python Version 1 ( More Optimized, Reference : dh031200, 57618671 )
 
-Basket_string_len, Basket_cnt = map( int, input().split() )
+Basket_string_len, Basket_put_cnt = map( int, input().split() )
 
 Basket_string = [0] * Basket_string_len
 
-for case in range( Basket_cnt ) :
+for case in range( Basket_put_cnt ) :
 
     Basket_num_min, Basket_num_max, Ball_num = map( int, input().split() )
 
