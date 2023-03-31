@@ -20,10 +20,6 @@
 # O                AB
 # AB
 
-# 
-# AE
-# OO
-# AB
 
 ###Python version 
 
