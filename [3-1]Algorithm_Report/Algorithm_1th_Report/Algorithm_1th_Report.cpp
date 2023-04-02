@@ -74,6 +74,7 @@ void Sorting( int Sort, vector<int> Array, int len)
         }
     }
 
+    // 버블 정렬 방식
     else if ( Sort == 2 )
     {
         printf("정렬 방식: \n\n버블 정렬( Bubble Sorting )\n");
@@ -89,7 +90,7 @@ void Sorting( int Sort, vector<int> Array, int len)
         }
     }
 
-    
+    // 삽입 정렬 방식
     else if ( Sort == 3 )
     {
         printf("정렬 방식: \n\n삽입 정렬( Insertion Sorting )\n");
