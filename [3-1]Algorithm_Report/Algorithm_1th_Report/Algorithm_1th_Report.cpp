@@ -83,7 +83,7 @@ void Sorting( int Sort, vector<int> Array, int len)
         printf("3. 비교하는 인덱스를 1씩 증가한다.\n");
         printf("   이 때, n+1이 배열의 끝에 도달하면, 1의 과정으로 돌아온다. \n");
         printf("   또한, 1 번째 값을 정렬 범위에서 제외시킨다.(배열의 2번째 부터 시적한다.) \n");
-        printf("3. 비교하는 인덱스를 1씩 증가한다.\n");
+        printf("4. 비교하는 인덱스를 1씩 증가한다.\n");
         for ( int i = 0; i < Array_len - 1; i++ )
         {
 		    for ( int j = 0; j < Array_len - i - 1; j++ ) 
