@@ -78,9 +78,12 @@ void Sorting( int Sort, vector<int> Array, int len)
     else if ( Sort == 2 )
     {
         printf("정렬 방식: \n\n버블 정렬( Bubble Sorting )\n");
-        printf("1. 가장 왼쪽의 값부터 시작하여, 오른쪽의 값과 비교한다. \n");
-        printf("2. 오른쪽의 값보다 크면 바꾼다. 작으면 바꾸지 않는다. \n");
-        printf("3. 이를 허용된 범위까지 반복하여 끝자리에 도달하면, 다시 첫번째 과정으로 돌아간다.\n\n\n");    
+        printf("1. 배열의 1(n) 번째 값과 2(n+1) 번째 값을 비교한다. \n");
+        printf("2. 배열의 1(n) 번째 값이 2(n+1) 번째 값보다 크면 교체하고. 작으면 바꾸지 않는다. \n");
+        printf("3. 비교하는 인덱스를 1씩 증가한다.\n");
+        printf("   이 때, n+1이 배열의 끝에 도달하면, 1의 과정으로 돌아온다. \n");
+        printf("   또한, 1 번째 값을 정렬 범위에서 제외시킨다.(배열의 2번째 부터 시적한다.) \n");
+        printf("3. 비교하는 인덱스를 1씩 증가한다.\n");
         for ( int i = 0; i < Array_len - 1; i++ )
         {
 		    for ( int j = 0; j < Array_len - i - 1; j++ ) 
