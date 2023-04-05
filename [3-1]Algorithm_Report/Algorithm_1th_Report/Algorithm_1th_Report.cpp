@@ -15,13 +15,13 @@ void Clear_Buffer()
     cin.ignore(256, '\n');  
     cout << "\n\n\n";
 }
+
+
 // 선택 정렬과 버블 정렬에 사용되는 함수이다.
 // 해당 함수는 두 개의 인덱스를 넘겨주면, 서로의 값을 바꿔준다.
-
 // 삽입 정렬의 경우, 
 // 쉬프트 연산(밀어내기)를 통해 자리를 바꿀 수 있으므로, 
 // 해당 함수를 사용하지 않는다. (사용할 수는 있지만, 비효율적이다.)
-
 template <typename T>
 void Swap(T &Num_a, T &Num_b)
 {
@@ -59,7 +59,7 @@ void Sorting( int Sort, vector<int> Array, int len)
         printf("정렬 방식: \n\n선택 정렬( Selection Sorting )\n");
         printf("1. 배열에서 가장 큰 값을 찾는다. \n");
         printf("2. 최댓값을 가장 뒤로 보낸다. \n");
-        printf("3. 배열의 사이즈를 줄이고, 위 과정을 반복한다.\n\n\n");                                                                           
+        printf("3. 탐색 범위를 줄이고, 위 과정을 반복한다.\n\n\n");                                                                           
         for( int i = 0; i < Array_len; i++ )             
         {
             Num_temp = 0;                                        
@@ -79,11 +79,11 @@ void Sorting( int Sort, vector<int> Array, int len)
     {
         printf("정렬 방식: \n\n버블 정렬( Bubble Sorting )\n");
         printf("1. 배열의 1(n) 번째 값과 2(n+1) 번째 값을 비교한다. \n");
-        printf("2. 배열의 1(n) 번째 값이 2(n+1) 번째 값보다 크면 교체하고. 작으면 바꾸지 않는다. \n");
+        printf("2. 배열의 1(n) 번째 값이 2(n+1) 번째 값보다 크면 교체하고. 작으면 바꾸지 않는다.\n");
         printf("3. 비교하는 인덱스를 1씩 증가한다.\n");
         printf("   이 때, n+1이 배열의 끝에 도달하면, 1의 과정으로 돌아온다. \n");
-        printf("   또한, 1 번째 값을 정렬 범위에서 제외시킨다.(배열의 2번째 부터 시적한다.) \n");
-        printf("4. 비교하는 인덱스를 1씩 증가한다.\n");
+        printf("   또한, 1(n) 번째 값을 정렬 범위에서 제외시킨다.(배열의 2(n+1) 번째 부터 시적한다.) \n");
+        printf("4. 위 과정을 반복한다.\n");
         for ( int i = 0; i < Array_len - 1; i++ )
         {
 		    for ( int j = 0; j < Array_len - i - 1; j++ ) 
@@ -97,18 +97,18 @@ void Sorting( int Sort, vector<int> Array, int len)
     else if ( Sort == 3 )
     {
         printf("정렬 방식: \n\n삽입 정렬( Insertion Sorting )\n");
-        printf("1. 이미 정렬된 영역과 정렬해야 할 영역으로 나눈다. \n");
-        printf("2. 정렬해야 할 영역의 값을 하나 잡아서, 이미 정렬된 값들과 비교한다. \n");
-        printf("3. 올바른 위치(왼쪽 값보단 크고, 오른쪽 값보단 작은)를 찾는다.\n");    
-        printf("4. 2번째 과정에서 생긴 빈 자리를 쉬프트 연산으로 매꾼다. 쉬프트 연산으로 빈 자리에 2번째 과정에서 잡은 값을 삽입한다.\n\n\n");
-        for (int i = 1; i < Array_len; ++i)
+        printf("1. 배열의 인덱스 'n'에 대하여, 올바른 위치를 찾는다.\n");    
+        printf("2. 해당 위치와 뒤에 있는 값들을 쉬프트 연산으로 옮긴다.\n");
+        printf("3. 1번 과정에서 찾은 올바른 위치에 배열의 n 번째의 값을 삽입한다.\n");
+        printf("4. 위 과정을 반복한다.\n\n\n");
+        for (int i = 1; i < Array_len; i++ )
         {
             int Num_temp = Array[ i ];
             int j = i - 1;
                 while (j >= 0 && Array[ j ] > Num_temp ) 
                 {
                     Array[j + 1] = Array[j];
-                    --j;
+                    j--;
                 }
             Array[j + 1] = Num_temp;
         }
