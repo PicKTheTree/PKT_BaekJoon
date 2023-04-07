@@ -1,4 +1,4 @@
-#Problem title  :   GCD (최대공약수)
+#Problem Title  :   GCD (최대공약수)
 #Problem Number :   1850
 #Problem Tier   :   Sliver 1
 #Date           :   2023/03/15, 23:03
@@ -16,15 +16,9 @@
 
 # 첫째 줄에 A와 B의 최대공약수를 출력한다. 정답은 천만 자리를 넘지 않는다.
 
-# 예제 입력 1 
-# 3 4
-# 예제 출력 1 
-# 1
-
-# 예제 입력 2 
-# 3 6
-# 예제 출력 2 
-# 111
+# 예제 입력   예제 출력 
+# 3 4         1
+# 3 6         111
 
 ### Python Version
 def GCD( Num_small, Num_big ) :
