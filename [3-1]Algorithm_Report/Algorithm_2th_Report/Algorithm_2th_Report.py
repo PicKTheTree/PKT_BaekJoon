@@ -1,4 +1,3 @@
-from matplotlib.table import Table
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -9,29 +8,48 @@ def Pattern_select(column,pattern_choice): # 각 패턴을 입력하면, 해당 
     elif    ( pattern_choice == 2 ) : return insert_table[column][2]
     else                            : return insert_table[column][0] + insert_table[column][2]
 
-def Patttern_isture(this_column, pre_column):   # 이번 열의 패턴과 이전 열의 패턴이 양립 가능한지 체크하는 함수
+def Pattern_isture(this_column, pre_column):   # 이번 열의 패턴과 이전 열의 패턴이 양립 가능한지 체크하는 함수
     
-    if (this_column == pre_column) : return False
-
-    if      (this_column == 0 and pre_column == 3)  : return False
-    elif    (this_column == 1 and pre_column != 3)  : return False
+    if      (this_column == pre_column)             : return False
+    elif    (this_column == 0 and pre_column == 3)  : return False
     elif    (this_column == 2 and pre_column == 3)  : return False
     elif    (this_column == 3 and pre_column != 1)  : return False
     else                                            : return True
 
-def find_maxvalue_in_column(column): # DP테이블의 각 행의 최댓값 위치를 리스트에 저장하는 함수
+def Paint_pattern(column, pattern): # 최대값을 도출하는 패턴을 칠하는 함수
+
+    if      pattern == 0 : table[1, column].set_facecolor('green')
+    elif    pattern == 1 : table[2, column].set_facecolor('green')
+    elif    pattern == 2 : table[3, column].set_facecolor('green')
+    else: 
+
+        table[1, column].set_facecolor('green')
+        table[3, column].set_facecolor('green')
+
+def Print_Output(n):    # 결과물을 출력하는 함수
+
+    for index_column in range(n-1, -1, -1): # 특정 셀 색깔 변경(역추적 기법)
     
-    column_maxvalue_pos = [0,0]
+        if index_column == n-1 :
 
-    for _ in range(4):  # DP테이블의 n번째 행의 최댓값 위치를 저장 
+            row = DP_table[index_column]
+            maxValue = max(row)
+            maxValue_pattern = row.index(int(maxValue))
+            Paint_pattern(index_column, maxValue_pattern)
 
-        if max(DP_table[column]) == DP_table[column][_] : 
+        else :
+            
+            for i in range(4):
+                
+                if DP_table[index_column][i] == maxValue - Pattern_select(index_column+1, maxValue_pattern) : 
 
-            column_maxvalue_pos = [column,_]
-            column_maxvalue_pos_list.append(column_maxvalue_pos)
-            break
-    
-    return 0
+                    if Pattern_isture(maxValue_pattern, i) : 
+                        
+                        Paint_pattern(index_column, i)
+                        maxValue = DP_table[index_column][i]
+                        maxValue_pattern = i
+                        break
+    plt.show()
 
 def Pebble(n):
 
@@ -51,7 +69,7 @@ def Pebble(n):
 
                 for pre_column_pattern in range(0,4): # 이전의 열의 패턴 중 양립이 가능하고 가장 큰 패턴 탐색
         
-                    if Patttern_isture(this_column_pattern, pre_column_pattern) == True :
+                    if Pattern_isture(this_column_pattern, pre_column_pattern) == True :
 
                         value = DP_table[column-1][pre_column_pattern] + DP_table[column][this_column_pattern]
 
@@ -60,16 +78,13 @@ def Pebble(n):
                             maxvalue = value
     
                 DP_table[column][this_column_pattern] = maxvalue
-
-        find_maxvalue_in_column(column) # GUI을 그릴 때, 최댓값을 색깔로 칠하기 위한 위치 저장
                             
-    print("DP Table\n\n")
+    print("DP Table")
     for print_index in range(n):                  
         
         print(DP_table[print_index])
 
     print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n\n")
-
 
 # ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 # 사용자 입력
@@ -80,7 +95,7 @@ while True:
 
     try:
 
-        n = int(input("테이블의 열(N)을 입력해주세요. (이때 n은 정수이며, 0 < N < 10이다.): "))
+        n = int(input("행의 길이(n)를 입력해주세요. (이때 n은 정수이며, 0 < N < 10이다.): "))
         if n < 0 or n > 10: raise ValueError
         break
 
@@ -90,13 +105,29 @@ while True:
 
 DP_table = [[0] * 4 for _ in range(n)]  # table의 '열'마다 가능한 각 패턴의 값을 기록한 테이블
 insert_table = []
-column_maxvalue_pos_list = [] # insert_table의 각 열에 최댓값의 위치를 저장하는 list
-column_maxvalue_pos = [] # 위의 리스트에 저장될 최댓값 위치 정보
 
+print("\n(입력 예시)")
+print("2")
+print("6 -8 11")
+print("7 10 12\n")
 
 for i in range(n):
 
-    col = list(map(int, input(f"{i+1}열의 숫자를 입력하세요: ").split()))
+    while True: # 열의 입력 범위를 벗어났을 때의 
+
+            try:
+                
+                col = list(map(int, input(f"{i+1}열의 값을 입력하세요: ").split()))
+                
+                if len(col) != 3 or (max(col) > 100 or min(col) < -100 )  :  raise ValueError    
+                break
+                
+            
+
+            except ValueError: 
+                
+                    print("입력 범위를 다시 확인 해주세요.")
+
     insert_table.append(col)
 
     if i == 0:
@@ -109,25 +140,12 @@ for i in range(n):
         temp_df = pd.DataFrame({ 'col '+ str(i+1): [insert_table[i][0], insert_table[i][1], insert_table[i][2]]}, index=df.index)
         df = pd.concat([df, temp_df], axis =1)
 
-print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n\n")
-
-Pebble(n)
-
+# matplotlib에서 표를 그리기 위해 선언하는 코드
 fig, ax = plt.subplots(figsize=(4, 2))
 ax.axis('off')
 table = ax.table(cellText=df.values.tolist(), colLabels=df.columns, rowLabels=df.index, cellLoc='center', loc='center')
 
-# 특정 셀 색깔 변경
-for _ in range(n):
-    
-    this_column_pattern = column_maxvalue_pos_list[_][1]
+print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n\n")
 
-    if this_column_pattern == 0 : table[1,_].set_facecolor('green')
-    elif this_column_pattern == 1 : table[2,_].set_facecolor('green')
-    elif this_column_pattern == 2 : table[3,_].set_facecolor('green')
-    else : 
-
-        table[1,_].set_facecolor('green')
-        table[3,_].set_facecolor('green')
-
-plt.show()
+Pebble(n)
+Print_Output(n)
