@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 
 def Pattern_select(column,pattern_choice): # 각 패턴을 입력하면, 해당 패턴을 인식하고 그 패턴의 값을 반환
 
-    if      ( pattern_choice == 0 ) : return insert_table[column][0]
-    elif    ( pattern_choice == 1 ) : return insert_table[column][1]
-    elif    ( pattern_choice == 2 ) : return insert_table[column][2]
+    if      ( pattern_choice != 3 ) : return insert_table[column][pattern_choice]
     else                            : return insert_table[column][0] + insert_table[column][2]
+
 
 def Pattern_isture(this_column, pre_column):   # 이번 열의 패턴과 이전 열의 패턴이 양립 가능한지 체크하는 함수
     
@@ -18,9 +17,10 @@ def Pattern_isture(this_column, pre_column):   # 이번 열의 패턴과 이전 
 
 def Paint_pattern(column, pattern): # 최대값을 도출하는 패턴을 칠하는 함수
 
-    if      pattern == 0 : table[1, column].set_facecolor('green')
-    elif    pattern == 1 : table[2, column].set_facecolor('green')
-    elif    pattern == 2 : table[3, column].set_facecolor('green')
+    if pattern != 3 : 
+        
+        table[pattern+1, column].set_facecolor('green')
+
     else: 
 
         table[1, column].set_facecolor('green')
