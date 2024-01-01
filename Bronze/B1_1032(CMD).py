@@ -62,7 +62,16 @@ print(String_print)
 
 
 
-
+### Python Version2
+# num = int(input())
+# input1 = list(input())
+# result = len(input1)
+# for i in range(num-1):
+#     data1 = list(input())
+#     for j in range(result):
+#         if (input1[j]!= data1[j]):
+#             input1[j] = "?"
+# print(''.join(input1))
 
 
 
