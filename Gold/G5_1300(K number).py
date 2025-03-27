@@ -1,63 +1,47 @@
-#Problem Title  :   Ship (배)
-#Problem Number :   1092
-#Problem Tier   :   Gold 5
-#Date           :   2023/03/14, 19:20
-#URL            :   https://www.acmicpc.net/problem/1092
+#Problem Title  :   K number
+#Problem Number :   1300
+#Problem Tier   :   Gold 1
+#Date           :   2025/03/27, 15:40
+#URL            :   https://www.acmicpc.net/problem/1300
 
+# 알고리즘 분류 : 
+# 이분 탐색
+# 매개 변수 탐색
 
 # 문제
-# 지민이는 항구에서 일한다. 그리고 화물을 배에 실어야 한다. 모든 화물은 박스에 안에 넣어져 있다. 
-# 항구에는 크레인이 N대 있고, 1분에 박스를 하나씩 배에 실을 수 있다. 모든 크레인은 동시에 움직인다.
-
-# 각 크레인은 무게 제한이 있다. 이 무게 제한보다 무거운 박스는 크레인으로 움직일 수 없다. 모든 박스를 배로 옮기는데 드는 시간의 최솟값을 구하는 프로그램을 작성하시오.
+# 세준이는 크기가 N×N인 배열 A를 만들었다. 배열에 들어있는 수 A[i][j] = i×j 이다. 이 수를 일차원 배열 B에 넣으면 B의 크기는 N×N이 된다. B를 오름차순 정렬했을 때, B[k]를 구해보자.
+# 배열 A와 B의 인덱스는 1부터 시작한다.
 
 # 입력
-# 첫째 줄에 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄에는 각 크레인의 무게 제한이 주어진다. 이 값은 1,000,000보다 작거나 같다. 셋째 줄에는 박스의 수 M이 주어진다. M은 10,000보다 작거나 같은 자연수이다. 넷째 줄에는 각 박스의 무게가 주어진다. 이 값도 1,000,000보다 작거나 같은 자연수이다.
+# 첫째 줄에 배열의 크기 N이 주어진다. N은 105보다 작거나 같은 자연수이다. 둘째 줄에 k가 주어진다. k는 min(109, N2)보다 작거나 같은 자연수이다.
 
 # 출력
-# 첫째 줄에 모든 박스를 배로 옮기는데 드는 시간의 최솟값을 출력한다. 만약 모든 박스를 배로 옮길 수 없으면 -1을 출력한다.
+# B[k]를 출력한다.
 
-# 예제 입력 1           # 예제 출력 1 
-# 3                       2
-# 6 8 9
-# 5
-# 2 5 2 4 7
+# 예제 입력           # 예제 출력 
+# 3                    6
+# 7
+
 
 
 
 
 ### Python Version
 
-import sys
 
-input = sys.stdin.readline
+N, K = int(input()), int(input())
+start, end, answer = 1, K, 1
 
-Len_string_crane    = int( input() )
-String_crane        = list( map( int, input().split() ) )
-Len_string_box      = int( input() )
-String_box          = list( map( int, input().split() ) )
+while start <= end :
+    
+    mid = (start + end) // 2
 
-String_crane.sort( reverse = True )
-String_box.sort( reverse = True )
-Time = 0
-
-if String_crane[0] < String_box[0] : print(-1); exit()
-
-
-while String_box : 
+    temp = 0
+    for i in range(1, N + 1): 
+        temp += min(mid // i, N)
         
-        
-    Time += 1
+    if temp >= K :  answer = mid; end = mid - 1
+    else :          start = mid + 1
 
-    for Crane in String_crane :
-
-        if String_box and Crane < String_box[-1] : continue
-
-        for Box_index in range( len( String_box ) ) :
-            
-            if Crane >= String_box[ Box_index ] : del String_box[ Box_index ]; break
-
-            
-print( Time )
-
+print(answer)
 
