@@ -1,4 +1,4 @@
-#Problem Title  :   K number
+#Problem Title  :   K number(K번째 수)
 #Problem Number :   1300
 #Problem Tier   :   Gold 1
 #Date           :   2025/03/27, 15:40
