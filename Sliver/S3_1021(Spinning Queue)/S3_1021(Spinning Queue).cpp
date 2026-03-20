@@ -1,7 +1,7 @@
 // Problem title  :   Spinning Queue
 // Problem Number :   1021
 // Problem Tier   :   Sliver 3
-// Date           :   2025/04/09, ??:??
+// Date           :   2026/03/20, 18:36
 // URL            :   https://www.acmicpc.net/problem/1021
 
 
@@ -36,3 +36,65 @@
 // 8
 
 ///// C++ Version
+#include<iostream>
+#include<deque>
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    int N, M;
+    cin >> N >> M;
+    
+    deque<int> dq;
+    int res = 0; 
+
+    for(int i = 1; i <= N; i++) dq.push_back(i);
+
+    while (M--)
+    {
+        int M_target;
+        cin >> M_target;
+
+        int dq_pop_idx = 0;
+
+        //dq_pop_idx에 pop할 index 저장
+        for(int i = 0; i < dq.size(); i++) 
+        {
+
+            if(dq[i] == M_target) 
+            {
+                dq_pop_idx = i;
+                break;
+            }
+        }
+
+        // 왼쪽으로 이동(2번 연산)이 유리한 경우
+        if (dq_pop_idx <= dq.size() / 2) 
+        {
+            while (dq.front() != M_target) 
+            {
+                dq.push_back(dq.front());
+                dq.pop_front();
+                res++;
+            }
+            dq.pop_front();
+        }
+
+        // 오른쪽으로 이동(3번 연산)이 유리한 경우
+        else 
+        {
+            while (dq.front() != M_target) 
+            {
+                dq.push_front(dq.back());
+                dq.pop_back();
+                res++;
+            }
+            dq.pop_front();
+        }
+    }
+    cout << res;
+    return 0;
+}
