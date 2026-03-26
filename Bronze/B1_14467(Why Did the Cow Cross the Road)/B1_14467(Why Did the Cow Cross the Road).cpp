@@ -1,7 +1,7 @@
 // Problem title  :   Why Did the Cow Cross the Road
 // Problem Number :   14467
 // Problem Tier   :   Bronze 1
-// Date           :   2023/02/26, 20:00
+// Date           :   2026/03/25, 20:00
 // URL            :   https://www.acmicpc.net/problem/14467
 
 // 문제
